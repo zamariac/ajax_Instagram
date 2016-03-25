@@ -1,0 +1,68 @@
+body{
+	background-color: #EDEEEF;
+}
+
+.button-bar{
+	background-color: #476C99;
+	padding-left: 4em;
+
+}
+
+.plus-box{
+	width: 1.6em;
+	border-left: .1em white solid;
+	border-right: .1em white solid;
+	text-align: center;
+	padding: .3em;	
+}
+
+.plus{
+	background-color: #072036;
+	color: #476C99;
+	border-radius: 50%;
+	border: none;
+	
+}
+
+.dropdown{
+	background-color: white;
+	padding: 2em 4em 5em 4em;
+
+}
+
+input{
+	width: 100%;
+	height: 2em;
+
+}
+
+textarea{
+	width: 100%;
+	height: 4em;
+	
+}
+
+.add-buttons{
+	font-size: .6em;
+	
+}
+
+.cancel{
+	background-color: gray;
+	color: white;
+	text-align: center;
+	padding: 1em;
+	border-radius: 10%;
+	
+
+}
+
+.add-image{
+	background-color: #17AA56;
+	color: white;
+	padding: 1em;
+	border-radius: 10%;
+	
+
+
+}
