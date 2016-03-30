@@ -12,6 +12,9 @@ body {
   text-align: center;
   padding: .3em; }
 
+.image-url {
+  margin-bottom: 1em; }
+
 .plus {
   background-color: #072036;
   color: #476C99;
@@ -45,5 +48,25 @@ textarea {
   color: white;
   padding: 1em;
   border-radius: 10%; }
+
+.image-post {
+  background-color: #E0E1E2;
+  width: 80%;
+  margin: 0 auto; }
+
+.image-place img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  padding-top: 1em; }
+
+.new-div {
+  background-color: white;
+  width: 80%;
+  height: 1em;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  padding-top: .5em;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
