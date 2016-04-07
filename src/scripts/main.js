@@ -2,7 +2,7 @@
 
 $('.dropdown').hide();   
 
-$('.plus').click(function(e){
+$('.plus').click((e) => {
 	e.preventDefault();
 
 	if ($('.dropdown').is(':visible')){
@@ -14,22 +14,59 @@ $('.plus').click(function(e){
 
 });
 
+//cancel button and form clearing
+
+$('.cancel').click((e) => {
+	e.preventDefault();
+
+	$('.dropdown').toggle("hide")
+	document.forms[0].reset();
+
+});
+
+//error validation 
+
+// function validate(e){
+// 	var foundError = true;
+// 	var $imageUrl = $('.image-url').val();
+// 	var $imageCaption = $('.image-caption').val();
+
+// 	if ($imageUrl === ""){
+// 		foundError = true;
+// 		$(".url-error").html("Please enter a URL.");
+// 	}
+
+// 	if ($imageUrl === "http://" || "https://"){
+// 		foundError = true;
+// 		$(".url-error").html("Please enter a valid URL.");
+// 	}
+
+// 	console.log('url-error');
+
+
+// }
+
+
+
 //this is grabbing the input url and sending it to heroku
 
-$('.add-image').click(function(e){
+
+$('.add-image').click((e) => {
 				e.preventDefault();
-				
+
 				var imageUrl = $('.image-url').val();
 				var imageCaption = $('.image-caption').val();
 
 				postImage(imageUrl, imageCaption);
+
+				
 			
 				
 			});
 
 collectionUrl = 'http://small-tiyfe.herokuapp.com/collections/maria-ig';
 
-//this ajax request  is posting to heroku
+//this ajax request  is posting to heroku and on success grabbing the image/caption and posting to the page while resetting the form
 function postImage(image, caption){
 	var addImages = {
 		url: collectionUrl,
@@ -46,12 +83,6 @@ function postImage(image, caption){
 			$('.dropdown').toggle("hide")
 			document.forms[0].reset();
 
-
-			
-
-
-			console.log(imageSuccess);
-			console.log(imageCaptionSuccess);
 		},
 
 
@@ -61,7 +92,6 @@ function postImage(image, caption){
 		} 
 
 	};
-	console.log(image);
 
 	$.ajax(addImages);
 }
@@ -72,30 +102,22 @@ var ajaxSettings = {
 	type: 'GET',   
 	dataType: 'json',
 	success: function(data){
-		//var container = $('.image-place');
-		//var textBox = $('.image-caption-place');
-
-
-		console.log(data);
 
 		for (i=0; i < data.length; i++){
 
-		console.log(data[i]);
+		//console.log(data[i]);
 
 		var image = data[i].imageUrl;
 		var caption = data[i].imageCaption;
-		console.log(caption);
+		//console.log(caption);
 
 		 $('<img src="' + image + '">').appendTo('.image-place');
 		
 		 $("<div class='new-div'>" + caption + "</div>").appendTo('.image-place');
-
 			
 };
 
-
 },
-
 
 	error: function(){
 	},
