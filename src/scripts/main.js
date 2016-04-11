@@ -26,25 +26,22 @@ $('.cancel').click((e) => {
 
 //error validation 
 
-// function validate(e){
-// 	var foundError = true;
-// 	var $imageUrl = $('.image-url').val();
-// 	var $imageCaption = $('.image-caption').val();
+function validate(e){
+	var foundError = false;
+	var $imageUrl = $('.image-url').val();
+	//console.log($imageUrl)
+	var $imageCaption = $('.image-caption').val();
 
-// 	if ($imageUrl === ""){
-// 		foundError = true;
-// 		$(".url-error").html("Please enter a URL.");
-// 	}
+	if ($imageUrl === "" && $imageCaption === "" || $imageUrl === ""){
+		$(".url-error").html("Please enter a URL.");
+		$(".imagecaption-error").html("Please enter a caption");
+		return foundError = true;
+	}else if ($imageUrl === "http://" || "https://"){
+		$(".url-error").html("Please enter a valid URL.");
+		return foundError = true;
+	} 
 
-// 	if ($imageUrl === "http://" || "https://"){
-// 		foundError = true;
-// 		$(".url-error").html("Please enter a valid URL.");
-// 	}
-
-// 	console.log('url-error');
-
-
-// }
+}
 
 
 
@@ -53,11 +50,14 @@ $('.cancel').click((e) => {
 
 $('.add-image').click((e) => {
 				e.preventDefault();
+				if (validate() === false){
 
 				var imageUrl = $('.image-url').val();
 				var imageCaption = $('.image-caption').val();
 
 				postImage(imageUrl, imageCaption);
+				
+				}
 
 				
 			
@@ -80,8 +80,9 @@ function postImage(image, caption){
 			$("<div class='new-div'>" + imageCaptionSuccess + "</div>").prependTo('.image-place');
 			$('<img src="' + imageSuccess + '">').prependTo('.image-place');
 
-			$('.dropdown').toggle("hide")
+	
 			document.forms[0].reset();
+			//$('.dropdown').toggle("hide");
 
 		},
 
@@ -114,6 +115,7 @@ var ajaxSettings = {
 		 $('<img src="' + image + '">').appendTo('.image-place');
 		
 		 $("<div class='new-div'>" + caption + "</div>").appendTo('.image-place');
+
 			
 };
 
