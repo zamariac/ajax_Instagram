@@ -29,14 +29,14 @@ $('.cancel').click((e) => {
 function validate(e){
 	var foundError = false;
 	var $imageUrl = $('.image-url').val();
-	//console.log($imageUrl)
+	 console.log($imageUrl)
 	var $imageCaption = $('.image-caption').val();
 
-	if ($imageUrl === "" && $imageCaption === "" || $imageUrl === ""){
+	if ($imageUrl === ""){
 		$(".url-error").html("Please enter a URL.");
-		$(".imagecaption-error").html("Please enter a caption");
+		console.log($imageUrl)
 		return foundError = true;
-	}else if ($imageUrl === "http://" || "https://"){
+	}else if ($imageUrl === "http://"){
 		$(".url-error").html("Please enter a valid URL.");
 		return foundError = true;
 	} 
@@ -44,23 +44,30 @@ function validate(e){
 }
 
 
-
 //this is grabbing the input url and sending it to heroku
 
 
 $('.add-image').click((e) => {
 				e.preventDefault();
-				if (validate() === false){
+				var hasError = validate(); //validate before post image so you're not posting the error
+				 if (hasError === true){
+				 	console.log('there was an error')
+				 }
 
 				var imageUrl = $('.image-url').val();
 				var imageCaption = $('.image-caption').val();
 
-				postImage(imageUrl, imageCaption);
-				
-				}
+				  if (hasError !== true){
+				  	postImage(imageUrl, imageCaption);
+
+				  }
 
 				
-			
+
+				
+
+				
+				
 				
 			});
 
