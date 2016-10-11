@@ -36,7 +36,7 @@ function validate(e){
 		$(".url-error").html("Please enter a URL.");
 		console.log($imageUrl)
 		return foundError = true;
-	}else if ($imageUrl === "http://"){
+	}else if ($imageUrl === "https://"){
 		$(".url-error").html("Please enter a valid URL.");
 		return foundError = true;
 	} 
@@ -71,7 +71,7 @@ $('.add-image').click((e) => {
 				
 			});
 
-collectionUrl = 'http://small-tiyfe.herokuapp.com/collections/maria-ig';
+collectionUrl = 'https://small-tiyfe.herokuapp.com/collections/maria-ig';
 
 //this ajax request  is posting to heroku and on success grabbing the image/caption and posting to the page while resetting the form
 function postImage(image, caption){
